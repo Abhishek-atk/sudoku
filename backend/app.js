@@ -9,7 +9,7 @@ app.use(cors());
 
 const server = http.createServer(app);
 const io = new Server(server, {
-  cors: { origin: "http://localhost:5173" },
+  cors: { origin: "*" },
 });
 app.use("/", route);
 let clientNo = 0;
@@ -52,6 +52,14 @@ socket.on("getProgress", ({ progressData }) => {
     senderSocketId,
   });
 });
+  socket.on("getMistake", ({ mistakeData }) => {
+    console.log(mistakeData);
+    const senderSocketId = socket.id;
+    io.to(mistakeData.room).emit("setMistake", {
+      ...mistakeData,
+      senderSocketId,
+    });
+  });
   socket.on("exitGame", (arg) => {
     io.to(arg).emit("getExitGame")
   });

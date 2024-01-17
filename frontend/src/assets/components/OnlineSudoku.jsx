@@ -21,10 +21,13 @@ function OnlineSudoku() {
   const [gameResult, setGameResult] = useState(false);
   const [win, setWin] = useState(false);
   const [mistakeWin, setMistakeWin] = useState(false);
-  const[exitWin, setExitWin] = useState(false)
+  const [exitWin, setExitWin] = useState(false);
   const [gameStart, setGameStart] = useState(true); // need to change to true false onlly testing purpose
   const [myProgress, setMyProgress] = useState();
   const [oppProgress, setOppProgress] = useState();
+  const [room, setRoom] = useState();
+  const [oppMistake, setOppMistake] = useState(0);
+  const [myMistake, setMyMistake] = useState(0)
   useEffect(() => {
     socket.emit("connectGame");
 
@@ -133,6 +136,9 @@ function OnlineSudoku() {
       }
     } else {
       setMistake(mistake + 1);
+      const mistakeData = { room, mistake  };
+      console.log(mistakeData);
+      socket.emit("getMistake", {mistakeData});
       if (mistake === 3) {
         endGame(false);
       }
@@ -185,14 +191,13 @@ function OnlineSudoku() {
   };
   function onExitButtonClick() {
     // endGame(false);
-    setExitWin(true)
-    socket.emit("exitGame", room)
+    setExitWin(true);
+    socket.emit("exitGame", room);
     navigate("/");
   }
 
   // ------------------------- socket.io-------------------------------------
 
-  const [room, setRoom] = useState();
   socket.on("serverMsg", (data) => {
     setRoom(data.roomNo);
     socket.emit("connectingOpponent", data.roomNo);
@@ -225,13 +230,20 @@ function OnlineSudoku() {
       setOppProgress(data.progress);
     }
   });
+  socket.on("setMistake", (data) => {
+    console.log("From set mistake");
+    if (socket.id === data.senderSocketId) {
+      setMyMistake(data.mistake);
+    } else {
+      setOppMistake(data.mistake);
+    }
+  });
   socket.on("getExitGame", () => {
     if (!exitWin) {
       setGameResult("YOU WON!! Opponent Exit the game");
       setModalOpen(true);
     }
-  
-});
+  });
   const handleSwitch = () => {
     socket.emit("buttonPressed", room);
   };
@@ -260,13 +272,10 @@ function OnlineSudoku() {
                 alt="avatar"
               />
             </span>
+            <div>Mistake: {myMistake}/3</div>
           </div>
           <div id="myProgress">
-            <progress
-              id="myProgressBar"
-              value={myProgress}
-              max="81"
-            ></progress>
+            <progress id="myProgressBar" value={myProgress} max="81"></progress>
           </div>
         </div>
         <div id="opponentDetailes">
@@ -277,6 +286,7 @@ function OnlineSudoku() {
                 alt="avatar"
               />
             </span>
+            <div>Mistake: {oppMistake}/3</div>
           </div>
           <div id="oppProgress">
             <progress
