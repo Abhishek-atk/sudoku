@@ -1,16 +1,4 @@
-import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
-
 function Navbar() {
-  const navigate = useNavigate();
-  const cookieExist = Cookies.get("token");
-  const handleLogIn = () => {
-    navigate("/login");
-  };
-  const handleLogOut = () => {
-    Cookies.remove("token");
-    navigate("/");
-  };
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -37,15 +25,7 @@ function Navbar() {
                 </a>
               </li>
             </ul>
-            {cookieExist ? (
-              <button className="btn btn-outline-danger" onClick={handleLogOut}>
-                Logout
-              </button>
-            ) : (
-              <button className="btn btn-outline-success" onClick={handleLogIn}>
-                Login
-              </button>
-            )}
+
           </div>
         </div>
       </nav>

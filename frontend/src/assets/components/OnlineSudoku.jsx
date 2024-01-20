@@ -244,9 +244,6 @@ function OnlineSudoku() {
       setModalOpen(true);
     }
   });
-  const handleSwitch = () => {
-    socket.emit("buttonPressed", room);
-  };
   return (
     <>
       {gameStart && (
@@ -436,9 +433,6 @@ function OnlineSudoku() {
           <div>
             <button id="newGameButton" onClick={onExitButtonClick}>
               Exit Game
-            </button>
-            <button id="newGameButton" onClick={handleSwitch}>
-              test Game
             </button>
           </div>
         </div>
