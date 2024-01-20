@@ -21,6 +21,9 @@ Live Link🔗: https://abhishek-sudoku.netlify.app/
 - **Socket.io Integration:**
   - Integrated Socket.io to provide real-time updates on game progress and mistakes during online multiplayer matches.
 
+## Video
+[![Watch the video](/frontend/src/assets/images/Dashboard.png)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+
 ## Screenshots
 ![Screenshot 1](/frontend/src/assets/images/Dashboard.png)
 *Dashboard*
@@ -48,11 +51,12 @@ Live Link🔗: https://abhishek-sudoku.netlify.app/
 
 ## Installation
 To run the Multiplayer Online Sudoku locally, follow these steps:
-1. Clone the repository. `git clone [Your Repository URL]`
-2. Navigate to the project directory.
+1. Clone the repository: `https://github.com/Abhishek-atk/sudoku`.
+2. Navigate to the project directory: `cd sudoku`.
 3. Run `npm install` to install dependencies.
-4. Set up MongoDB and update the connection string in the project.
-5. Run the application using `npm start`.
+4. Open two separate terminals and navigate to the frontend and backend directories using the `cd frontend` and `cd backend` commands, respectively.
+5. In each terminal, run the frontend and backend using `npm run dev`.
+
 
 
 
