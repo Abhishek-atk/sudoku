@@ -22,7 +22,7 @@ Live Link🔗: https://abhishek-sudoku.netlify.app/
   - Integrated Socket.io to provide real-time updates on game progress and mistakes during online multiplayer matches.
 
 ## Video
-[![Watch the video](/frontend/src/assets/images/Dashboard.png)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[![Watch the video](/frontend/src/assets/images/Dashboard.png)](/frontend/src/assets/images/2024-01-20%2013-33-14.mkv)
 
 ## Screenshots
 ![Screenshot 1](/frontend/src/assets/images/Dashboard.png)
