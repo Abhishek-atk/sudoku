@@ -6,6 +6,8 @@ Multiplayer Online Sudoku is a real-time multiplayer game developed using the ME
 ## Live
 Live Link🔗: https://abhishek-sudoku.netlify.app/
 
+Video Link🎥 : https://drive.google.com/file/d/1eZ6qD9taKH6NcfAdP1JAXlIziY0nlnen/view
+
 
 
 ## Features
@@ -22,7 +24,7 @@ Live Link🔗: https://abhishek-sudoku.netlify.app/
   - Integrated Socket.io to provide real-time updates on game progress and mistakes during online multiplayer matches.
 
 ## Video
-[![Watch the video](/frontend/src/assets/images/Dashboard.png)](/frontend/src/assets/images/2024-01-20%2013-33-14.mkv)
+[![Watch the video](/frontend/src/assets/images/Dashboard.png)](https://drive.google.com/file/d/1eZ6qD9taKH6NcfAdP1JAXlIziY0nlnen/view)
 
 ## Screenshots
 ![Screenshot 1](/frontend/src/assets/images/Dashboard.png)
@@ -44,10 +46,10 @@ Live Link🔗: https://abhishek-sudoku.netlify.app/
 - Socket.io
 
 ## NPM Modules
-- **Mongoose:** Used for MongoDB object modeling.
 - **Express:** Used for building the Node.js application.
 - **React:** Used for building the user interface.
 - **Socket.IO:** Integrated for real-time communication.
+- **Mongoose:** Used for MongoDB object modeling.
 
 ## Installation
 To run the Multiplayer Online Sudoku locally, follow these steps:
